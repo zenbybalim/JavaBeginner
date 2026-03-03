@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class week1_2 {
     public static void main(String[] args) {
         int not1, not2, sum=0;
-        double avarage;
+        double average;
 
         Scanner input = new Scanner(System.in);
 
@@ -14,8 +14,8 @@ public class week1_2 {
         not2 = input.nextInt();
 
         sum = not1 + not2;
-        avarage = sum/2.0;
+        average = sum/2.0;
 
-        System.out.println("Your avarage is :" +avarage);
+        System.out.println("Your average is :" +average);
     }
 }
