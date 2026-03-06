@@ -21,5 +21,4 @@ public class week2_3 {
         else
             System.out.println("unsuccessful");
     }
-    
 }
