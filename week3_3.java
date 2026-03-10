@@ -17,6 +17,10 @@ public class week3_3 {
         c= input.nextDouble();
 
         d1 = (b*b - 4*a*c);
+        
+        System.out.println("Delta : " +d1);
+
+        if(d1 > 0){
 
         d2 = Math.sqrt((b*b - 4*a*c));
 
@@ -25,8 +29,15 @@ public class week3_3 {
 
         System.out.println("x1 =" +x1);
         System.out.println("x2= " +x2);
-        System.out.println("Delta : " +d1);
+        }
 
-    }
-    
+        else if(d1 == 0){
+            x1 = -b / (2 * a);
+            System.out.println("Tek kök var = x1 = x2 = " +x1);
+        }
+
+        else{
+            System.out.println("Kök yok");
+        } 
+    }    
 }
