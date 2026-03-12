@@ -16,29 +16,26 @@ public class week3_12 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        char fakülte;
+        String fakülte;
         String d;
         Double dücret=0.0, tücret=0.0;
 
-        System.out.println("Hangi Fakültedesiniz; Teknoloji Fakültesi=T, Mühendislik Fakültesi=M, Eğitim Fakültesi=E");
-        fakülte = input.next().charAt(0);
-
-        System.out.println("Hangi dersi alacaksiniz (sadece 1 ders seçiniz); f1, f2, k1 veya k2");
-        d = input.next();
+        System.out.println("Hangi Fakültedesiniz; Teknoloji Fakültesi=TF, Mühendislik Fakültesi=MF, Eğitim Fakültesi=EF");
+        fakülte = input.next();
 
         switch(fakülte){
-            case 't':
-            case 'T':
+            case "tf":
+            case "TF":
                 dücret = 20.0;
                 break;
 
-            case 'm':
-            case 'M':
+            case "mf":
+            case "MF":
                 dücret = 22.0;
                 break;
 
-            case 'e':
-            case 'E':
+            case "ef":
+            case "EF":
                 dücret = 19.0;
                 break;
 
@@ -46,7 +43,12 @@ public class week3_12 {
                     System.out.println("fakülte için geçersiz değer girdiniz");
             }
 
-            if(fakülte == 't' || fakülte == 'T' || fakülte == 'm' || fakülte == 'M' || fakülte == 'e' || fakülte == 'E'){
+
+        System.out.println("Hangi dersi alacaksiniz (sadece 1 ders seçiniz); f1, f2, k1 veya k2");
+        d = input.next();
+
+
+            if(fakülte.equals("tf") ||fakülte.equals("TF") || fakülte.equals("mf") || fakülte.equals("MF") || fakülte.equals("ef") || fakülte.equals("EF")){
 
         if(d.equals("f1") || d.equals("f2")){
             tücret = dücret*3;
