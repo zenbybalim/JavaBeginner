@@ -1,3 +1,4 @@
+package week1_practices_java;
 import java.util.Scanner;
 public class week1_4 {
     public static void main(String[] args) {
