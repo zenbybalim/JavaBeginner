@@ -13,7 +13,7 @@ import java.util.Scanner;
 //K sabiti için eğer cinsiyet kız ise K = 0,8 alınmalı,
 //c.
 //K sabiti için eğer erkek ise K = 0,9 alınmalı,
-public class week3_10 {
+public class week3_910 {
   public static void main(String[] args){
     Scanner input = new Scanner(System.in);
 

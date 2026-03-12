@@ -11,7 +11,7 @@ import java.util.Scanner;
 //Başarı puanı şu şekilde hesaplanmaktadır : BP = (KSort * 50/100 +Vort * 50 / 100 ) * 40/100 + F * 60/100;
 //Not : BP : Başarı puanı, KSort :Kısa sınavların not ortalaması, Vort :Vizelerin not ortalaması, F: Final Notu
 
-public class week3_11 {
+public class week3_911 {
     public static void main(String[] args){
         Scanner input =  new Scanner(System.in);
 

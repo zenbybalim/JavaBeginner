@@ -12,7 +12,7 @@ import java.util.Scanner;
 // Fizik 1 ve Fizik 2 derslerinin ders saati 3, Kalkülüs 1 ve Kalkülüs 2 derslerinin ders saati 4 tür.
 // Klavyeden fakülte ve ders bilgisi girildikten sonra 
 // ödemesi gereken yaz okulu ücretini ekrana yazdıran programın kodlarını yazınız.
-public class week3_12 {
+public class week3_912 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
