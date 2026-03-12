@@ -25,9 +25,12 @@ public class week3_9 {
             eşdeğerdirenc = direnc1 + direnc2;
             System.out.println("seri bağlanti için eş değer direnç = " +eşdeğerdirenc);
         }
-        else{
-            eşdeğerdirenc = (1/direnc1) + (1/direnc2);
+        else if(baglanti == 'p'){
+            eşdeğerdirenc = (direnc1 * direnc2) / (direnc1 + direnc2);
             System.out.println("paralel bağlanti için eş değer direnç = " +eşdeğerdirenc);
+        }
+        else{
+            System.out.println("geçersiz harf girdiniz");
         }
     }
     
