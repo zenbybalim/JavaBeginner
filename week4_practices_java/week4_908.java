@@ -6,16 +6,13 @@ public class week4_908 {
         int sayi=0, adet=0;
         int kalan2, kalan5;
 
-        for(sayi=0;sayi<1000;sayi++){
+        for(sayi=0;sayi<=1000;sayi++){
             kalan2 = sayi%2;
             kalan5 = sayi%5;
             if(kalan2 != 0 && kalan5 == 0){
                 adet++;
             }
-
-
         }
          System.out.println("5 sayisinin kati olup 2 sayisinin kati olmayan sayilarin adeti = " +adet);
-    }
-    
+    } 
 }
