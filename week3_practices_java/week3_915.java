@@ -22,19 +22,14 @@ public class week3_915 {
         System.out.println("Kimya notunuzu giriniz : ");
         kim = input.nextDouble();
 
-        toplam = mat + fiz + kim ;
+        toplam = mat + fiz + kim;
         fizvemat = mat + fiz;
 
         if(mat >= 65){
             if(fiz >= 55){
                 if(kim >= 50){
-                    if(fizvemat >=140){
-                        if(toplam >= 190){
+                    if(fizvemat >=140 || toplam>=190){
                             System.out.println("Ogrenci kursa katilmaya uygun.");
-                        }
-                        else{
-                            System.out.println("Ogrenci kursa katilmaya uygun degil.");
-                        }
                     }
                     else{
                             System.out.println("Ogrenci kursa katilmaya uygun degil.");
