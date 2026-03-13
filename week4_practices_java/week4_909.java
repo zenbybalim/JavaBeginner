@@ -24,8 +24,7 @@ public class week4_909 {
         System.out.println("tekrar hesaplama yapmak için e harfine basiniz = ");
         secim = input.next();
 
-        }while(secim.equals("e")|| secim.equals("E"));
-        
-        
+        }
+        while(secim.equals("e")|| secim.equals("E"));  
     }
 }
