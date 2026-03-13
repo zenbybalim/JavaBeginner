@@ -9,7 +9,7 @@ public class week4_905 {
 
         int tahmin, sayi;
 
-        sayi = rndm.nextInt(100);
+        sayi = rndm.nextInt(101);
         System.out.println("Tutulan sayiyi bul.");
 
         do{
