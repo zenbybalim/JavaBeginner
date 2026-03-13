@@ -15,13 +15,13 @@ public class week4_910 {
             sayi = input.nextInt();
             if(sayi>10){
                 toplam += sayi;
+                adet++;            
             }
-            adet++;
         }
-        while(sayi>0);
+        while(sayi>=0);
 
         System.out.println("10 sayisindan buyuk sayilarin toplami = " +toplam);
-        System.out.println("girdiginiz sayi adeti = (negatif sayi dahil)" +adet);
+        System.out.println("adet = " +adet);
     
         }
     
