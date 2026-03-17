@@ -16,10 +16,16 @@ public class week4_912 {
         System.out.println("kuvvet giriniz:");
         kuvvet = input.nextInt();
 
+        if(kuvvet>0){
         do{
             sonuc = sonuc * sayi;
             i++;        
         }while(i<=kuvvet);
+        }
+
+        else if(kuvvet==0){
+            sonuc = 1;
+        }
 
         System.out.println("Sonuc = "+sonuc);
     }
