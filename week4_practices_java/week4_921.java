@@ -10,13 +10,14 @@ public class week4_921 {
         int i=0;
 
         System.out.println("1. terim = " +eleman1);
+        System.out.println("2. terim = " +eleman2);
 
-        for(i=1; i<100; i++){
+        for(i=1; i<99; i++){
             sonuc = eleman1 + eleman2;
             eleman1 = eleman2;
             eleman2 = sonuc;
 
-             System.out.println((i+1) +". terim = " +sonuc);
+             System.out.println((i+2) +". terim = " +sonuc);
         }
         
        
