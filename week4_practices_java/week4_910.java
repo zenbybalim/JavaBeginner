@@ -24,5 +24,4 @@ public class week4_910 {
         System.out.println("adet = " +adet);
     
         }
-    
 }
