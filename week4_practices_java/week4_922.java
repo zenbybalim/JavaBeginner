@@ -39,14 +39,17 @@ public class week4_922 {
             puan = puan - 2;
             yanlisSayisi++;
         }
-        System.out.println("dogru cevap sayiniz = " +dogruSayisi);
-        System.out.println("Yanlis cevap sayiniz = " +yanlisSayisi);
-        System.out.println("Toplam puaniniz = " +puan); 
-
+        
         System.out.println("Tekrar denemek ister misiniz ? (tekrar denemek için e/E tuslayiniz)");
         harf = input.next();
 
     }while(harf.equals("e")|| harf.equals("E"));
+
+        System.out.println("Sonuclariniz = ");
+        System.out.println("dogru cevap sayiniz = " +dogruSayisi);
+        System.out.println("Yanlis cevap sayiniz = " +yanlisSayisi);
+        System.out.println("Toplam puaniniz = " +puan); 
+
 
     }
     
