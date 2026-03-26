@@ -16,6 +16,9 @@ public class week4_922 {
         Scanner input = new Scanner(System.in);
         Random rastgele = new Random();
         int say1, say2, toplam, cevap;
+        int puan=0;
+        int dogruSayisi = 0;
+        int yanlisSayisi = 0;
         String harf;
 
         do{
@@ -28,14 +31,21 @@ public class week4_922 {
 
         if(toplam ==  cevap){
             System.out.println("Tebrikler Dogru Bildiniz!");
+            puan = puan+5;
+            dogruSayisi++;
         }
         else{
             System.out.println("Yanlis Bildiniz");
+            puan = puan - 2;
+            yanlisSayisi++;
         }
+        System.out.println("dogru cevap sayiniz = " +dogruSayisi);
+        System.out.println("Yanlis cevap sayiniz = " +yanlisSayisi);
+        System.out.println("Toplam puaniniz = " +puan); 
 
         System.out.println("Tekrar denemek ister misiniz ? (tekrar denemek için e/E tuslayiniz)");
         harf = input.next();
-        
+
     }while(harf.equals("e")|| harf.equals("E"));
 
     }
