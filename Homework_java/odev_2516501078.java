@@ -85,7 +85,7 @@ public class odev_2516501078 {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         String[] kelimeler = {
                 "maalesef", "sezgisel", "tutarli", "kelebek",
@@ -113,7 +113,7 @@ public class odev_2516501078 {
             for (int hak = 1; hak <= 15 && kontrol == 1; hak++) {
 
                 System.out.print("Harf giriniz: ");
-                char harf = sc.next().charAt(0);
+                char harf = input.next().charAt(0);
 
                 if (harfkontrol(kelime, harf) == 1) {
 
@@ -139,7 +139,7 @@ public class odev_2516501078 {
 
             if (oyun < 5) {
                 System.out.print("Tekrar oynamak istiyor musunuz? (e/h): ");
-                cevap = sc.next().charAt(0);
+                cevap = input.next().charAt(0);
             } else {
                 System.out.println("5 oyun hakkini kullandiniz");
             }
