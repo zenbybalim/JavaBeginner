@@ -14,6 +14,7 @@ public class odev_2516501078 {
             i = rnd.nextInt(10);
         }
 
+        
         return ilkkisim[i];
     }
 
