@@ -122,13 +122,13 @@ public class odev_2516501078 {
 
                 } else {
 
-                    System.out.println("Harf yok");
+                    System.out.println("Harfiniz yok");
                 }
 
                 kontrol = yildizkontrolzamani(gosterim);
 
                 if (kontrol == 0) {
-                    System.out.println("Tebrikler");
+                    System.out.println("Tebrikler!!");
                     break;
                 }
 
@@ -138,7 +138,7 @@ public class odev_2516501078 {
             }
 
             if (oyun < 5) {
-                System.out.print("Tekrar oynamak istiyor musunuz (e/h): ");
+                System.out.print("Tekrar oynamak istiyor musunuz? (e/h): ");
                 cevap = sc.next().charAt(0);
             } else {
                 System.out.println("5 oyun hakkini kullandiniz");
