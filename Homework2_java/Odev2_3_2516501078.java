@@ -64,9 +64,8 @@ public class Odev2_3_2516501078 {
         String searchWord = "\"" + target + "\":";
         int startIndex = text.indexOf(searchWord);
         
-        // Eğer kelime yoksa, "Bulunamadi" döner
         if (startIndex == -1) {
-            return "Bulunamadi"; 
+            return "NOT FOUND"; 
         }
         
         startIndex = startIndex + searchWord.length();
@@ -141,14 +140,32 @@ public class Odev2_3_2516501078 {
                     int commaIndex = currentNeuronText.indexOf(",");
                     String id = currentNeuronText.substring(0, commaIndex).replace("\"", "").trim();
                     
-                    String species = findData(currentNeuronText, "species");
-                    String length = findData(currentNeuronText, "length");
-                    String branches = findData(currentNeuronText, "branches");
+                    String surface = findData(currentNeuronText, "surface");
+                    String volume = findData(currentNeuronText, "volume");
+                    String slicingThickness = findData(currentNeuronText, "slicing_thickness");
 
-                    System.out.println("Neuron ID: " + id);
-                    System.out.println("Species  : " + species);
-                    System.out.println("Length   : " + length);
-                    System.out.println("Branches : " + branches);
+                    System.out.println("Neuron ID : " + id);
+                    System.out.println("Surface   : " + surface);
+                    System.out.println("Volume    : " + volume);
+                    System.out.println("Thickness : " + slicingThickness);
+
+                    if (!surface.equals("NOT FOUND") && !surface.equals("null") && 
+                        !volume.equals("NOT FOUND") && !volume.equals("null")) {
+                        
+                        try {
+                            double surfaceValue = Double.parseDouble(surface);
+                            double volumeValue = Double.parseDouble(volume);
+                            
+                            double synapticComplexityScore = 0.0;
+                            
+                            System.out.println("Synaptic Complexity Score: " + synapticComplexityScore);
+
+                        } catch (NumberFormatException e) {
+                            System.out.println("-> Calculation skipped: Neuron " + id + " is not suitable for numerical analysis.");
+                        }
+                    } else {
+                        System.out.println("-> Calculation skipped: Insufficient morphological data.");
+                    }
                     System.out.println("-------------------------");
                 }
 
@@ -163,5 +180,6 @@ public class Odev2_3_2516501078 {
             System.out.println("Exception details: " + e.getMessage());
             e.printStackTrace();
         }
+        
     }
 }

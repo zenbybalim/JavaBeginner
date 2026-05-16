@@ -1,0 +1,51 @@
+NeuronID ; NeuronName ; Species ; BrainRegion ; CellType ; SynapticComplexityScore
+100000 ; test_set_skeleton_246 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100001 ; test_set_skeleton_261 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100002 ; test_set_skeleton_266 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100003 ; test_set_skeleton_29 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100004 ; test_set_skeleton_310 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100005 ; test_set_skeleton_321 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100006 ; test_set_skeleton_354 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100007 ; test_set_skeleton_358 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100008 ; test_set_skeleton_364 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100009 ; test_set_skeleton_371 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100010 ; test_set_skeleton_397 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100011 ; test_set_skeleton_40 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100012 ; test_set_skeleton_402 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100013 ; test_set_skeleton_404 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100014 ; test_set_skeleton_416 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100015 ; test_set_skeleton_423 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100016 ; test_set_skeleton_429 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100017 ; test_set_skeleton_43 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100018 ; test_set_skeleton_441 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100019 ; test_set_skeleton_469 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100020 ; test_set_skeleton_480 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100021 ; test_set_skeleton_496 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100022 ; test_set_skeleton_5 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100023 ; test_set_skeleton_508 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100024 ; test_set_skeleton_530 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100025 ; test_set_skeleton_545 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100026 ; test_set_skeleton_547 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100027 ; test_set_skeleton_557 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100028 ; test_set_skeleton_582 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100029 ; test_set_skeleton_588 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100030 ; test_set_skeleton_607 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100031 ; test_set_skeleton_62 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100032 ; test_set_skeleton_66 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100033 ; test_set_skeleton_670 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100034 ; test_set_skeleton_675 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100035 ; test_set_skeleton_73 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+100036 ; test_set_skeleton_99 ; zebra finch ; [basal ganglia ; [principal cell] ; 0,00
+101622 ; Apr12IR1b ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101623 ; Apr12IR3a ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101624 ; Apr12IR3b ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101625 ; Apr19IR3f ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101626 ; Apr26IR1a ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101627 ; Apr26IR3h ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101628 ; Apr29IR1c ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101629 ; Apr29IR3a ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101630 ; Nov3IR2a_1 ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101631 ; Nov3IR2d ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101632 ; Nov3IR2e ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101633 ; Nov3IR3b ; mouse ; [basal ganglia ; [principal cell ; 0,00
+101634 ; Nov8IR2b ; mouse ; [basal ganglia ; [principal cell ; 0,00

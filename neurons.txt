@@ -1,0 +1,152 @@
+=== BASAL GANGLIA NEURON ANALYSIS REPORT ===
+
+Neuron ID: 100000
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100001
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100002
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100003
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100004
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100005
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100006
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100007
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100008
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100009
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100010
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100011
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100012
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100013
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100014
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100015
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100016
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100017
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100018
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100019
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100020
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100021
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100022
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100023
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100024
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100025
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100026
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100027
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100028
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
+Neuron ID: 100029
+Species: zebra finch
+Length: 0.0 | Branches: 0.0
+Synaptic Complexity Score: 0,00
+----------------------------------------
