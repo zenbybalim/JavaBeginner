@@ -286,9 +286,9 @@ public class Odev2_3_2516501078 {
         int mControl = 1; 
 
         while (mControl == 1) {
-            System.out.println("\n==================================================");
+            System.out.println("\n=================================");
             System.out.println("      NEUROMORPHO DATA PIPELINE - SYSTEM LOBBY    ");
-            System.out.println("==================================================");
+            System.out.println("===================================");
             System.out.println("[1] Fetch Data & Save to File (Background)");
             System.out.println("[2] Fetch Data & Display on Screen (Live View)");
             System.out.println("[3] View Saved Results (Read Text File)");
