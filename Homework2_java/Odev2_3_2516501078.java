@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
+import java.net.URLEncoder;
 
 //For SSL error
 import javax.net.ssl.HostnameVerifier;
@@ -25,7 +26,7 @@ import java.security.cert.X509Certificate;
 
 //Computational Neuroscience Data Pipeline
 //Focus: Basal Ganglia Morphological Analysis
-// Author: Elif Balım Çetin [Zen]
+//By: Elif Balım Çetin [Zen]
 
 public class Odev2_3_2516501078 { 
 
@@ -34,42 +35,64 @@ public class Odev2_3_2516501078 {
         // 1. Bypass SSL certificate issues for academic API
         bypassSSLSecurity();
 
-        System.out.println("Connecting to NeuroMorpho API... Please wait.");
+        System.out.println("Connecting to NeuroMorpho API, Please wait.");
 
-        try {
-            // Target URL for Basal Ganglia neurons
-            String apiUrl = "https://neuromorpho.org/api/neuron/select?q=brain_region:basal%20ganglia&size=30";
-
+                try {
+            String apiUrl = "https://neuromorpho.org/api/neuron/select?q=brain_region:%22basal%20ganglia%22&page=0&size=30";
             URI uri = URI.create(apiUrl);
             URL url = uri.toURL();
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String currentLine;
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+            conn.setRequestProperty("Accept", "application/json");
+
+            System.out.println("wwaiting server response...");
+            int responseCode = conn.getResponseCode();
+            System.out.println("Server Response Code: " + responseCode);
+
+            BufferedReader reader;
+
+            if (responseCode >= 200 && responseCode < 300) {
+                
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), Charset.forName("UTF-8")));
+                System.out.println("Connection established successfully. Initiating data transfer...");
+            } else {
+               
+                reader = new BufferedReader(new InputStreamReader(conn.getErrorStream(), Charset.forName("UTF-8")));
+                System.out.println("WARNING: Target server rejected the request. Analyzing error stream...");
+            }
             
-            // StringBuilder to hold the massive JSON string
+           
             StringBuilder responsePayload = new StringBuilder();
+            String currentLine;
 
             while ((currentLine = reader.readLine()) != null) {
                 responsePayload.append(currentLine);
             }
-            reader.close(); 
+            reader.close();
 
-            System.out.println("Connection Successful! Raw JSON Payload:");
-            System.out.println("---------------------------------------------------");
-            System.out.println(responsePayload.toString());
+            if (responseCode >= 200 && responseCode < 300) {
+                System.out.println("Data transfer complete. Payload size: " + responsePayload.length() + " characters.");
+                
+                String rawData = responsePayload.toString();
+                String[] neuronChunks = rawData.split("\"neuron_id\":");
+                System.out.println("Estimated neuron chunks extracted: " + (neuronChunks.length - 1));
+            } else {
+                System.out.println("Server Error Details: \n" + responsePayload.toString());
+            }
 
         } catch (Exception e) {
-            System.out.println("Connection Failed: " + e.getMessage());
+            System.out.println("CRITICAL ERROR: Pipeline connection failed.");
+            System.out.println("Exception details: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    // =====================================================================
+    // =====================================================
     // SSL BYPASS UTILITY (To prevent Handshake Exceptions)
-    // =====================================================================
+    // =====================================================
     public static void bypassSSLSecurity() {
         try {
             TrustManager[] trustAllCerts = new TrustManager[]{
@@ -90,6 +113,7 @@ public class Odev2_3_2516501078 {
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 
         } catch (Exception e) {
+            System.out.println("Something is wrong:");
             e.printStackTrace();
         }
     }
