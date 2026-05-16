@@ -233,7 +233,6 @@ public class Odev2_3_2516501078 {
                 System.out.println("[SUCCESS] Live streaming complete.");
             }
             if (reader != null) {
-                reader.close();
             }
 
         } catch (Exception e) {
@@ -252,8 +251,7 @@ public class Odev2_3_2516501078 {
                 while (fileReader.hasNextLine()) {
                     String data = fileReader.nextLine();
                     System.out.println(data);
-                }
-                fileReader.close(); 
+                } 
                 System.out.println("---------------------------------------------");
             } else {
                 System.out.println("[WARNING] 'noronlar.txt' does not exist. Please run Option 1 first.");
@@ -265,7 +263,7 @@ public class Odev2_3_2516501078 {
     }
 
     public static void showSystemGuide() {
-        System.out.println("\n==================================================");
+        System.out.println("\n=================================================");
         System.out.println("             SYSTEM GUIDE & INSTRUCTIONS          ");
         System.out.println("==================================================");
         System.out.println("[ABOUT THE PIPELINE]");
