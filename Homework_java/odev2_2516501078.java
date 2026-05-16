@@ -81,11 +81,8 @@ public class odev2_2516501078 {
         }
     }
 
-    // ----------------------------------------------------------------
     //  1. VERİ ÇEK
-    //  API'den nöron verilerini çekip dosyaya kaydeder
     //  Format: noronAdi;turAdi;beyin_bolgesi;hucre_tipi;laboratuvar
-    // ----------------------------------------------------------------
     static void veriCek() {
         System.out.println("\n--- VERİ ÇEKİLİYOR ---");
         System.out.println("NeuroMorpho.org'dan neocortex nöronları indiriliyor...");
