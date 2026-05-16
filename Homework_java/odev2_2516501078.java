@@ -314,49 +314,8 @@ public class odev2_2516501078 {
                 System.out.println("Kayıt bulunamadı!");
                 return;
             }
-
-            String[] parcalar = bulunanSatir.split(";");
-            System.out.println("\nBulunan kayıt:");
-            System.out.println("  Ad           : " + parcalar[0]);
-            System.out.println("  Tür          : " + parcalar[1]);
-            System.out.println("  Beyin Bölgesi: " + parcalar[2]);
-            System.out.println("  Hücre Tipi   : " + parcalar[3]);
-            System.out.println("  Laboratuvar  : " + parcalar[4]);
-            System.out.print("\nBu kaydı güncellemek istiyor musunuz? (e/h): ");
-            String onay = scanner.nextLine().trim();
-
-            if (!onay.equalsIgnoreCase("e")) {
-                System.out.println("Güncelleme iptal edildi.");
-                return;
-            }
-
-            System.out.println("\nYeni değerleri girin (boş bırakırsanız mevcut değer korunur):");
-
-            System.out.print("Yeni nöron adı [" + parcalar[0] + "]: ");
-            String yeniAd = scanner.nextLine().trim();
-            if (yeniAd.isEmpty()) yeniAd = parcalar[0];
-
-            System.out.print("Yeni tür [" + parcalar[1] + "]: ");
-            String yeniTur = scanner.nextLine().trim();
-            if (yeniTur.isEmpty()) yeniTur = parcalar[1];
-
-            System.out.print("Yeni beyin bölgesi [" + parcalar[2] + "]: ");
-            String yeniBolge = scanner.nextLine().trim();
-            if (yeniBolge.isEmpty()) yeniBolge = parcalar[2];
-
-            System.out.print("Yeni hücre tipi [" + parcalar[3] + "]: ");
-            String yeniHucre = scanner.nextLine().trim();
-            if (yeniHucre.isEmpty()) yeniHucre = parcalar[3];
-
-            System.out.print("Yeni laboratuvar [" + parcalar[4] + "]: ");
-            String yeniLab = scanner.nextLine().trim();
-            if (yeniLab.isEmpty()) yeniLab = parcalar[4];
-
-            String yeniSatir = yeniAd + ";" + yeniTur + ";" + yeniBolge + ";" + yeniHucre + ";" + yeniLab;
-            String yeniIcerik = tumIcerik.toString().replace(bulunanSatir, yeniSatir);
-
-            FileWriter fw = new FileWriter(dosyaAdi, false);
-            fw.write(yeniIcerik);
+////////////////////////TEKRARYAP
+          //
 
             System.out.println("✓ Kayıt başarıyla güncellendi!");
             logKaydet("GÜNCELLEME - Eski: " + bulunanSatir + " | Yeni: " + yeniSatir);
@@ -386,26 +345,7 @@ public class odev2_2516501078 {
                 if (p.length >= 1 && p[0].toLowerCase().contains(aranan.toLowerCase())) {
                     bulunanSatir = satir;
                 }
-            }
-
-            if (bulunanSatir == null) {
-                System.out.println("Kayıt bulunamadı!");
-                return;
-            }
-
-            String[] parcalar = bulunanSatir.split(";");
-            System.out.println("\nBulunan kayıt:");
-            System.out.println("  Ad: " + parcalar[0] + " | Tür: " + parcalar[1] +
-                    " | Bölge: " + parcalar[2]);
-            System.out.print("Silmek istediğiniz kayıt bu mu? (e/h): ");
-            String onay = scanner.nextLine().trim();
-
-            if (!onay.equalsIgnoreCase("e")) {
-                System.out.println("Silme işlemi iptal edildi.");
-                return;
-            }
-
-            String yeniIcerik = tumIcerik.toString().replace(bulunanSatir + "\n", "");
+            
 
             FileWriter fw = new FileWriter(dosyaAdi, false);
             fw.write(yeniIcerik);
@@ -421,46 +361,7 @@ public class odev2_2516501078 {
         }
     }
     //  5. ARA  
-    static void ara() {
-        System.out.println("\n══════ ARA ══════");
-        System.out.print("Aramak istediğiniz nöron adını girin: ");
-        String aranan = scanner.nextLine().trim().toLowerCase();
-
-        System.out.println("\n" + String.format("%-30s %-15s %-20s %-25s %-20s",
-                "Nöron Adı", "Tür", "Beyin Bölgesi", "Hücre Tipi", "Laboratuvar"));
-          String cizgiler = tekrarla("-", 120);
-
-        int bulunan = 0;
-        try {
-            BufferedReader br = new BufferedReader(
-                new InputStreamReader(new FileInputStream(dosyaAdi), StandardCharsets.UTF_8));
-            String satir;
-            while ((satir = br.readLine()) != null) {
-                String[] p = satir.split(";");
-                if (p.length >= 5 && p[0].toLowerCase().contains(aranan)) {
-                    System.out.println(String.format("%-30s %-15s %-20s %-25s %-20s",
-                            p[0], p[1], p[2], p[3], p[4]));
-                    bulunan++;
-                }
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Dosya bulunamadı! Önce veri çekin (Menü 1).");
-            return;
-        } catch (Exception e) {
-            System.out.println("HATA: " + e.getMessage());
-        }
-
-        if (bulunan == 0) System.out.println("'" + aranan + "' için sonuç bulunamadı.");
-        else System.out.println("\nToplam " + bulunan + " sonuç bulundu.");
-    }
-    //  6. İSTATİSTİK  
-    static void istatistik() {
-        System.out.println("\n══════ İSTATİSTİK ══════");
-
-        int toplamKayit = 0;
-        int ratSayisi = 0, mouseSayisi = 0, humanSayisi = 0, digerTurSayisi = 0;
-        int neocortexSayisi = 0, hippocampusSayisi = 0, digerBolgeSayisi = 0;
-
+   /////////////////////////////////////////////////////////////////////7
         try {
             BufferedReader br = new BufferedReader(
                 new InputStreamReader(new FileInputStream(dosyaAdi), StandardCharsets.UTF_8));
