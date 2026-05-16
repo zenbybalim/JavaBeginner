@@ -30,66 +30,6 @@ import java.security.cert.X509Certificate;
 
 public class Odev2_3_2516501078 { 
 
-    public static void main(String[] args) {
-        
-        // 1. Bypass SSL certificate issues for academic API
-        bypassSSLSecurity();
-
-        System.out.println("Connecting to NeuroMorpho API, Please wait.");
-
-                try {
-            String apiUrl = "https://neuromorpho.org/api/neuron/select?q=brain_region:%22basal%20ganglia%22&page=0&size=30";
-            URI uri = URI.create(apiUrl);
-            URL url = uri.toURL();
-
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-
-            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
-            conn.setRequestProperty("Accept", "application/json");
-
-            System.out.println("wwaiting server response...");
-            int responseCode = conn.getResponseCode();
-            System.out.println("Server Response Code: " + responseCode);
-
-            BufferedReader reader;
-
-            if (responseCode >= 200 && responseCode < 300) {
-                
-                reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), Charset.forName("UTF-8")));
-                System.out.println("Connection established successfully. Initiating data transfer...");
-            } else {
-               
-                reader = new BufferedReader(new InputStreamReader(conn.getErrorStream(), Charset.forName("UTF-8")));
-                System.out.println("WARNING: Target server rejected the request. Analyzing error stream...");
-            }
-            
-           
-            StringBuilder responsePayload = new StringBuilder();
-            String currentLine;
-
-            while ((currentLine = reader.readLine()) != null) {
-                responsePayload.append(currentLine);
-            }
-            reader.close();
-
-            if (responseCode >= 200 && responseCode < 300) {
-                System.out.println("Data transfer complete. Payload size: " + responsePayload.length() + " characters.");
-                
-                String rawData = responsePayload.toString();
-                String[] neuronChunks = rawData.split("\"neuron_id\":");
-                System.out.println("Estimated neuron chunks extracted: " + (neuronChunks.length - 1));
-            } else {
-                System.out.println("Server Error Details: \n" + responsePayload.toString());
-            }
-
-        } catch (Exception e) {
-            System.out.println("CRITICAL ERROR: Pipeline connection failed.");
-            System.out.println("Exception details: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
     // =====================================================
     // SSL BYPASS UTILITY (To prevent Handshake Exceptions)
     // =====================================================
@@ -114,6 +54,113 @@ public class Odev2_3_2516501078 {
 
         } catch (Exception e) {
             System.out.println("Something is wrong:");
+            e.printStackTrace();
+        }
+    }
+    // =====================================
+    // JSON PARSER (Basic String Operations)
+    // =====================================
+    public static String findData(String text, String target) {
+        String searchWord = "\"" + target + "\":";
+        int startIndex = text.indexOf(searchWord);
+        
+        // Eğer kelime yoksa, "Bulunamadi" döner
+        if (startIndex == -1) {
+            return "Bulunamadi"; 
+        }
+        
+        startIndex = startIndex + searchWord.length();
+        int endIndex = text.indexOf(",", startIndex);
+        
+        if (endIndex == -1) {
+            endIndex = text.indexOf("}", startIndex);
+        }
+        
+        String rawResult = text.substring(startIndex, endIndex);
+        
+        String cleanResult = rawResult.replace("\"", "");
+        cleanResult = cleanResult.trim();
+        
+        return cleanResult;
+    }
+
+    public static void main(String[] args) {
+        
+        // 1. Bypass SSL certificate issues for academic API
+        bypassSSLSecurity();
+
+        System.out.println("Connecting to NeuroMorpho API, Please wait.");
+
+        try {
+            String apiUrl = "https://neuromorpho.org/api/neuron/select?q=brain_region:%22basal%20ganglia%22&page=0&size=30";
+            URI uri = URI.create(apiUrl);
+            URL url = uri.toURL();
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            
+            // Timeout güvenlik duvarları
+            conn.setConnectTimeout(10000); 
+            conn.setReadTimeout(15000); 
+
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+            conn.setRequestProperty("Accept", "application/json");
+
+            System.out.println("Waiting server response...");
+            int responseCode = conn.getResponseCode();
+            System.out.println("Server Response Code: " + responseCode);
+
+            BufferedReader reader;
+
+            if (responseCode >= 200 && responseCode < 300) {
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), Charset.forName("UTF-8")));
+                System.out.println("Connection established successfully. Initiating data transfer...");
+            } else {
+                reader = new BufferedReader(new InputStreamReader(conn.getErrorStream(), Charset.forName("UTF-8")));
+                System.out.println("WARNING: Target server rejected the request. Analyzing error stream...");
+            }
+            
+            StringBuilder responsePayload = new StringBuilder();
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                responsePayload.append(currentLine);
+            }
+
+            if (responseCode >= 200 && responseCode < 300) {
+                System.out.println("Data transfer complete. Payload size: " + responsePayload.length() + " characters.");
+                
+                String rawData = responsePayload.toString();
+                String[] neurons = rawData.split("\"neuron_id\":");
+                System.out.println("Estimated neuron chunks extracted: " + (neurons.length - 1));
+                System.out.println("\n--- INITIATING PARSING PROCESS ---");
+
+                for (int i = 1; i < neurons.length; i++) {
+                    String currentNeuronText = neurons[i];
+                    
+                    int commaIndex = currentNeuronText.indexOf(",");
+                    String id = currentNeuronText.substring(0, commaIndex).replace("\"", "").trim();
+                    
+                    String species = findData(currentNeuronText, "species");
+                    String length = findData(currentNeuronText, "length");
+                    String branches = findData(currentNeuronText, "branches");
+
+                    System.out.println("Neuron ID: " + id);
+                    System.out.println("Species  : " + species);
+                    System.out.println("Length   : " + length);
+                    System.out.println("Branches : " + branches);
+                    System.out.println("-------------------------");
+                }
+
+            } else {
+                System.out.println("Server Error Details: \n" + responsePayload.toString());
+            }
+            
+            if (reader != null);
+
+        } catch (Exception e) {
+            System.out.println("CRITICAL ERROR: Pipeline connection failed.");
+            System.out.println("Exception details: " + e.getMessage());
             e.printStackTrace();
         }
     }
