@@ -21,6 +21,8 @@ import java.security.cert.X509Certificate;
 
 public class Odev2_3_2516501078 { 
 
+    static Scanner globalScanner = new Scanner(System.in);
+
     // SSL BYPASS UTILITY 
     public static void bypassSSLSecurity() {
         try {
@@ -80,8 +82,8 @@ public class Odev2_3_2516501078 {
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setConnectTimeout(10000); 
-            conn.setReadTimeout(15000); 
+            conn.setConnectTimeout(60000); 
+            conn.setReadTimeout(90000); 
             conn.setRequestProperty("User-Agent", "Mozilla/5.0");
             conn.setRequestProperty("Accept", "application/json");
 
@@ -111,7 +113,7 @@ public class Odev2_3_2516501078 {
 
                 FileWriter fileWriter = new FileWriter("noronlar.txt");
                 fileWriter.write("--- BASAL GANGLIA NEURON DATA PIPELINE ---\n");
-                fileWriter.write("==========================================\n");
+                fileWriter.write("-\n");
 
                 for (int i = 1; i < neurons.length; i++) {
                     String currentNeuronText = neurons[i];
@@ -145,7 +147,7 @@ public class Odev2_3_2516501078 {
                 System.out.println("[SUCCESS] Calculations complete. All data saved to 'noronlar.txt'.");
             }
             
-            if (reader != null) {  
+            if (reader != null) {
             }
 
         } catch (Exception e) {
@@ -154,7 +156,7 @@ public class Odev2_3_2516501078 {
         }
     }
 
-    // OPTION 2: FETCH & DISPLAY ON SCREEN
+    // OPTION 2: FETCH & DISPLAY ON SCREEN (LIVE)
     public static void fetchAndDisplayLive() {
         bypassSSLSecurity();
         System.out.println("\n[SYSTEM] Connecting to NeuroMorpho API for Live Data...");
@@ -166,8 +168,8 @@ public class Odev2_3_2516501078 {
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setConnectTimeout(10000); 
-            conn.setReadTimeout(15000); 
+            conn.setConnectTimeout(60000); 
+            conn.setReadTimeout(90000);    
             conn.setRequestProperty("User-Agent", "Mozilla/5.0");
             conn.setRequestProperty("Accept", "application/json");
 
@@ -179,7 +181,7 @@ public class Odev2_3_2516501078 {
                 System.out.println("[SYSTEM] Connection successful. Streaming data...\n");
             } else {
                 reader = new BufferedReader(new InputStreamReader(conn.getErrorStream(), Charset.forName("UTF-8")));
-                System.out.println("[1WARNING!] Target server rejected the request.");
+                System.out.println("[WARNING] Target server rejected the request.");
                 return; 
             }
             
@@ -193,9 +195,9 @@ public class Odev2_3_2516501078 {
             if (responseCode >= 200 && responseCode < 300) {
                 String rawData = responsePayload.toString();
                 String[] neurons = rawData.split("\"neuron_id\":");
-                System.out.println("==========================================");
+                System.out.println("=");
                 System.out.println("             LIVE NEURON METRICS                  ");
-                System.out.println("==========================================");
+                System.out.println("=");
 
                 for (int i = 1; i < neurons.length; i++) {
                     String currentNeuronText = neurons[i];
@@ -241,7 +243,7 @@ public class Odev2_3_2516501078 {
         }
     }
 
-    // OPTION 3: READ SAVED DATA
+    // OPTION 3: READ SAVED DATA METHOD
     public static void viewSavedData() {
         System.out.println("\n--- READING SAVED DATABASE (noronlar.txt) ---");
         try {
@@ -251,7 +253,7 @@ public class Odev2_3_2516501078 {
                 while (fileReader.hasNextLine()) {
                     String data = fileReader.nextLine();
                     System.out.println(data);
-                } 
+                }
                 System.out.println("---------------------------------------------");
             } else {
                 System.out.println("[WARNING] 'noronlar.txt' does not exist. Please run Option 1 first.");
@@ -262,42 +264,235 @@ public class Odev2_3_2516501078 {
         }
     }
 
+    // OPTION 4: MODIFY SAVED DATA METHOD
+    public static void modifySavedData() {
+        System.out.println("\n--- MODIFY SAVED DATABASE ---");
+        
+        try {
+            File myObj = new File("noronlar.txt");
+            if (!myObj.exists()) {
+                System.out.println("[WARNING] 'noronlar.txt' does not exist. Please fetch data first.");
+                return;
+            }
+
+            String[] fileLines = new String[100]; 
+            int lineCount = 0;
+            
+            Scanner fileReader = new Scanner(myObj);
+            while (fileReader.hasNextLine()) {
+                fileLines[lineCount] = fileReader.nextLine();
+                lineCount++;
+            }
+
+            System.out.print("Enter the Neuron ID you want to modify: ");
+            String targetId = globalScanner.nextLine().trim();
+            
+            int foundIndex = -1;
+            
+            for (int i = 0; i < lineCount; i++) {
+                if (fileLines[i] != null && fileLines[i].contains("ID: " + targetId + " |")) {
+                    foundIndex = i;
+                    i = lineCount; 
+                }
+            }
+
+            if (foundIndex != -1) {
+                System.out.println("\n[RECORD FOUND] " + fileLines[foundIndex]);
+                
+                System.out.print("Do you want to change this data? (Press 1 for Yes, 0 for No): ");
+                String confirm = globalScanner.nextLine().trim();
+                
+                if (confirm.equals("1")) {
+                    System.out.print("Enter new Surface value: ");
+                    String newSurfaceStr = globalScanner.nextLine().trim();
+                    
+                    System.out.print("Enter new Volume value: ");
+                    String newVolumeStr = globalScanner.nextLine().trim();
+                    
+                    try {
+                        double newSurf = Double.parseDouble(newSurfaceStr);
+                        double newVol = Double.parseDouble(newVolumeStr);
+                        double newScore = newSurf / newVol;
+                        
+                        fileLines[foundIndex] = "ID: " + targetId + " | Surface: " + newSurf + " | Volume: " + newVol + " | Score: " + newScore;
+                        
+                        FileWriter fileWriter = new FileWriter("noronlar.txt");
+                        for (int i = 0; i < lineCount; i++) {
+                            if(fileLines[i] != null) fileWriter.write(fileLines[i] + "\n");
+                        }
+                        
+                        System.out.println("\n[SUCCESS] Neuron data updated and score recalculated successfully!");
+                        
+                    } catch (NumberFormatException e) {
+                        System.out.println("\n[ERROR] Invalid number format. Update cancelled.");
+                    }
+                } else {
+                    System.out.println("\n[SYSTEM] Modification cancelled by user.");
+                }
+            } else {
+                System.out.println("\n[ERROR] Neuron ID '" + targetId + "' not found in the database.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("[ERROR] An error occurred while modifying the file.");
+            e.printStackTrace();
+        }
+    }
+
+    // OPTION 5: COMPARE & RANK NEURON SCORES
+    public static void compareSavedData() {
+        System.out.println("\n--- COMPARE & RANK NEURONS ---");
+
+        try {
+            File myObj = new File("noronlar.txt");
+            if (!myObj.exists()) {
+                System.out.println("[WARNING] 'noronlar.txt' does not exist. Please fetch data first.");
+                return;
+            }
+
+            String[] fileLines = new String[100];
+            int lineCount = 0;
+            Scanner fileReader = new Scanner(myObj);
+            while (fileReader.hasNextLine()) {
+                fileLines[lineCount] = fileReader.nextLine();
+                lineCount++;
+            }
+
+            System.out.println("Enter the Neuron IDs you want to compare separated by space (e.g., 100001 100002).");
+            System.out.print("Or type 'ALL' to see the global ranking of all saved neurons: ");
+            String userInput = globalScanner.nextLine().trim();
+
+            String[] compareIds = new String[100];
+            double[] compareScores = new double[100];
+            int compareCount = 0;
+
+            if (userInput.equalsIgnoreCase("ALL")) {
+                for (int i = 0; i < lineCount; i++) {
+                    if (fileLines[i] != null && fileLines[i].contains("ID: ") && fileLines[i].contains("Score: ")) {
+                        String line = fileLines[i];
+                        
+                        int idStart = line.indexOf("ID: ") + 4;
+                        int idEnd = line.indexOf(" | Surface");
+                        String extractedId = line.substring(idStart, idEnd).trim();
+
+                        int scoreStart = line.indexOf("Score: ") + 7;
+                        String scoreStr = line.substring(scoreStart).trim();
+
+                        if (!scoreStr.contains("ERROR")) {
+                            compareIds[compareCount] = extractedId;
+                            compareScores[compareCount] = Double.parseDouble(scoreStr);
+                            compareCount++;
+                        }
+                    }
+                }
+            } else {
+                String[] requestedIds = userInput.split(" ");
+                for (int i = 0; i < requestedIds.length; i++) {
+                    String reqId = requestedIds[i].trim();
+                    if (reqId.length() > 0) {
+                        
+                        int foundIndex = -1;
+                        for (int j = 0; j < lineCount; j++) {
+                            if (fileLines[j] != null && fileLines[j].contains("ID: " + reqId + " |")) {
+                                foundIndex = j;
+                                j = lineCount; 
+                            }
+                        }
+                        
+                        if (foundIndex != -1) {
+                            String line = fileLines[foundIndex];
+                            int scoreStart = line.indexOf("Score: ") + 7;
+                            String scoreStr = line.substring(scoreStart).trim();
+                            
+                            if (!scoreStr.contains("ERROR")) {
+                                compareIds[compareCount] = reqId;
+                                compareScores[compareCount] = Double.parseDouble(scoreStr);
+                                compareCount++;
+                            } else {
+                                System.out.println("[WARNING!] Neuron " + reqId + " has an ERROR score. Skipping.");
+                            }
+                        } else {
+                            System.out.println("[WARNING] Neuron ID '" + reqId + "' not found.");
+                        }
+                    }
+                }
+            }
+
+            if (compareCount == 0) {
+                System.out.println("[ERROR] No valid data found to compare.");
+                return;
+            }
+
+            for (int i = 0; i < compareCount - 1; i++) {
+                for (int j = 0; j < compareCount - i - 1; j++) {
+                    if (compareScores[j] < compareScores[j + 1]) {
+                        
+                        // Swap Scores
+                        double tempScore = compareScores[j];
+                        compareScores[j] = compareScores[j + 1];
+                        compareScores[j + 1] = tempScore;
+
+                        // Swap IDs
+                        String tempId = compareIds[j];
+                        compareIds[j] = compareIds[j + 1];
+                        compareIds[j + 1] = tempId;
+                    }
+                }
+            }
+
+            System.out.println("\n=");
+            System.out.println("SYNAPTIC COMPLEXITY RANKING (HIGH TO LOW)     ");
+            System.out.println("=");
+            for (int i = 0; i < compareCount; i++) {
+                System.out.println("Rank " + (i + 1) + " | Neuron ID: " + compareIds[i] + " | Score: " + compareScores[i]);
+            }
+            System.out.println("=");
+
+        } catch (Exception e) {
+            System.out.println("[ERROR] An error occurred while comparing data.");
+            e.printStackTrace();
+        }
+    }
+
+    // OPTION 6: SYSTEM GUIDE & INSTRUCTIONS
     public static void showSystemGuide() {
-        System.out.println("\n=================================================");
-        System.out.println("             SYSTEM GUIDE & INSTRUCTIONS          ");
-        System.out.println("==================================================");
-        System.out.println("[ABOUT THE PIPELINE]");
+        System.out.println("\n=");
+        System.out.println("SYSTEM GUIDE & INSTRUCTIONS          ");
+        System.out.println("=");
+        System.out.println("|ABOUT THE PIPELINE|");
         System.out.println("This system automatically connects to the NeuroMorpho");
         System.out.println("database and extracts morphological data (Surface,");
         System.out.println("Volume) for 30 Basal Ganglia neurons.");
         System.out.println("\n[HOW TO USE]");
-        System.out.println("- You do not need to enter complex API queries.");
-        System.out.println("- Simply enter a number from the menu (1-5):");
-        System.out.println("  [1] Secretly fetches and saves data to a txt file.");
-        System.out.println("  [2] Fetches data and displays calculations live.");
-        System.out.println("  [3] Reads the saved 'noronlar.txt' file.");
-        System.out.println("==================================================");
+        System.out.println("- Enter a number from the menu |1-7|:");
+        System.out.println("  |1| Secretly fetches and saves data to a txt file.");
+        System.out.println("  |2| Fetches data and displays calculations live.");
+        System.out.println("  |3| Reads the saved 'noronlar.txt' file.");
+        System.out.println("  |4| Interactively modifies existing neuron metrics.");
+        System.out.println("  |5| Compares and ranks neurons by Complexity Score.");
+        System.out.println("=");
     }
 
+    // MAIN LOBBY MENU
     public static void main(String[] args) {
-        Scanner inputScanner = new Scanner(System.in);
         String choice = "";
-        
         int mControl = 1; 
 
         while (mControl == 1) {
-            System.out.println("\n=================================");
-            System.out.println("      NEUROMORPHO DATA PIPELINE - SYSTEM LOBBY    ");
-            System.out.println("===================================");
-            System.out.println("[1] Fetch Data & Save to File (Background)");
-            System.out.println("[2] Fetch Data & Display on Screen (Live View)");
-            System.out.println("[3] View Saved Results (Read Text File)");
-            System.out.println("[4] System Guide & Instructions");
-            System.out.println("[5] Exit System");
-            System.out.println("==================================================");
-            System.out.print("Please select an operation (1-5): ");
+            System.out.println("\n=");
+            System.out.println("NEUROMORPHO DATA PIPELINE - SYSTEM LOBBY    ");
+            System.out.println("=");
+            System.out.println("|1| Fetch Data & Save to File (Background)");
+            System.out.println("|2| Fetch Data & Display on Screen (Live View)");
+            System.out.println("|3| View Saved Results (Read Text File)");
+            System.out.println("|4| Modify Saved Data (Interactive)");
+            System.out.println("|5| Compare Neurons by Score (Ranking)");
+            System.out.println("|6| System Guide & Instructions");
+            System.out.println("|7| Exit System");
+            System.out.println("=");
+            System.out.print("Please select an operation -> |1-7|: ");
             
-            choice = inputScanner.nextLine();
+            choice = globalScanner.nextLine().trim();
 
             if (choice.equals("1")) {
                 runPipeline();
@@ -309,9 +504,15 @@ public class Odev2_3_2516501078 {
                 viewSavedData();
             } 
             else if (choice.equals("4")) {
+                modifySavedData();
+            }
+            else if (choice.equals("5")) {
+                compareSavedData();
+            }
+            else if (choice.equals("6")) {
                 showSystemGuide();
             } 
-            else if (choice.equals("5")) {
+            else if (choice.equals("7")) {
                 System.out.println("\n[SYSTEM] Shutting down... Goodbye!");
                 mControl = 0; 
             } 
@@ -319,6 +520,5 @@ public class Odev2_3_2516501078 {
                 System.out.println("\n[ERROR] Invalid selection. Please try again.");
             }
         }
-        
     }
 }

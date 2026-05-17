@@ -1,0 +1,32 @@
+--- BASAL GANGLIA NEURON DATA PIPELINE ---
+-------------------------------------------
+ID: 100000 | Surface: 1251.09 | Volume: 78.1929 | Score: 16.000046039985726
+ID: 100001 | Surface: 12231.0 | Volume: 33456.0 | Score: 0.3655846484935438
+ID: 100002 | Surface: 703.196 | Volume: 43.9497 | Score: 16.000018202627096
+ID: 100003 | Surface: 1935.69 | Volume: 120.98 | Score: 16.000082658290626
+ID: 100004 | Surface: 522.071 | Volume: 32.6294 | Score: 16.00001838832464
+ID: 100005 | Surface: 1059.94 | Volume: 66.2465 | Score: 15.999939619451595
+ID: 100006 | Surface: 2227.93 | Volume: 139.246 | Score: 15.999956910790972
+ID: 100007 | Surface: 1238.98 | Volume: 77.4359 | Score: 16.0000723178784
+ID: 100008 | Surface: 1444.67 | Volume: 90.2918 | Score: 16.000013290243412
+ID: 100009 | Surface: 1773.87 | Volume: 110.867 | Score: 15.999981960366924
+ID: 100010 | Surface: 1684.59 | Volume: 105.287 | Score: 15.999981004302525
+ID: 100011 | Surface: 1172.78 | Volume: 73.299 | Score: 15.9999454289963
+ID: 100012 | Surface: 1344.31 | Volume: 84.0194 | Score: 15.999995239194757
+ID: 100013 | Surface: 1373.94 | Volume: 85.8712 | Score: 16.000009316278334
+ID: 100014 | Surface: 1196.32 | Volume: 74.7698 | Score: 16.00004279802808
+ID: 100015 | Surface: 2097.8 | Volume: 131.113 | Score: 15.999938983929894
+ID: 100016 | Surface: 1496.23 | Volume: 93.5143 | Score: 16.000012832262016
+ID: 100017 | Surface: 1459.95 | Volume: 91.2466 | Score: 16.000048220974808
+ID: 100018 | Surface: 1181.85 | Volume: 73.8658 | Score: 15.999962093418064
+ID: 100019 | Surface: 1211.44 | Volume: 75.7152 | Score: 15.999957736359411
+ID: 100020 | Surface: 2562.96 | Volume: 160.185 | Score: 16.0
+ID: 100021 | Surface: 1532.69 | Volume: 95.7934 | Score: 15.99995406781678
+ID: 100022 | Surface: 1573.95 | Volume: 98.372 | Score: 15.999979669011507
+ID: 100023 | Surface: 1584.34 | Volume: 99.0214 | Score: 15.999975762814906
+ID: 100024 | Surface: 871.304 | Volume: 54.4565 | Score: 16.0
+ID: 100025 | Surface: 813.872 | Volume: 50.867 | Score: 16.0
+ID: 100026 | Surface: 902.452 | Volume: 56.4033 | Score: 15.999985816432726
+ID: 100027 | Surface: 1847.47 | Volume: 115.467 | Score: 15.999982679033836
+ID: 100028 | Surface: 1577.47 | Volume: 98.5921 | Score: 15.999963485918244
+ID: 100029 | Surface: 1544.07 | Volume: 96.5042 | Score: 16.000029014281242
