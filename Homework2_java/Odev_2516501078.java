@@ -18,7 +18,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.security.cert.X509Certificate;
 
-public class Odev2_3_2516501078 { 
+public class Odev_2516501078 { 
 
     static Scanner commandScanner = new Scanner(System.in);
 
